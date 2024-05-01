@@ -17,14 +17,16 @@ function createEl() {
   const amount = Number(refs.input.value);
   if (amount > 0 && amount <= 100) {
     destroyEl();
+    const elements = [];
     for (let i = 0; i < amount; i++) {
       const size = 30 + i * 10;
       const box = document.createElement('div');
       box.style.width = `${size}px`;
       box.style.height = `${size}px`;
       box.style.backgroundColor = getRandomHexColor();
-      refs.boxes.append(box);
+      elements.push(box);
     }
+    refs.boxes.append(...elements);
   }
 }
 
